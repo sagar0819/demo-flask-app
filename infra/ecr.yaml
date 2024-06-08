@@ -8,12 +8,10 @@ Parameters:
   repoName:
     Description: Name for ecr repo
     Type: String
-    Default: demoapp
 
   createdByTag:
     Description: Mention the tag for this Cloudformation templated created by name
     Type: String
-    Default: Sagar
 
 #------------------------
 #   RESOURCES
