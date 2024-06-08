@@ -1,4 +1,5 @@
-FROM python
+FROM amazonlinux:latest
+RUN dnf update -y && dnf install -y python pip
 RUN mkdir /app && chmod +x app
 WORKDIR /app
 COPY src .

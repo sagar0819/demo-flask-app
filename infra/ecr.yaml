@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Elastic Container Registory Repository using Cloudformation
+
+#------------------------
+#   PARAMETERS
+#------------------------
+Parameters:
+  repoName:
+    Description: Name for ecr repo
+    Type: String
+    Default: demoapp
+
+  createdByTag:
+    Description: Mention the tag for this Cloudformation templated created by name
+    Type: String
+    Default: Sagar
+
+#------------------------
+#   RESOURCES
+#------------------------ 
+Resources:
+  ecrRepo:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Sub ${repoName}
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      ImageTagMutability: IMMUTABLE
+      Tags:
+        - Key: Name
+          Value: !Sub ${repoName}
+        - Key: CreatedBy
+          Value: !Ref createdByTag
